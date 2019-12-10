@@ -1,0 +1,87 @@
+.layout__item {
+  padding: 0 1rem;
+}
+.layout__item--cart{ 
+  margin-top:1rem; 
+  margin-left: 1rem
+}
+
+.course-card {
+  border-bottom: 1px solid gray;
+  color: #222;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.course-card--cart{
+  padding-bottom: 1rem;
+}
+
+.course-card__image {
+  width: 20%;
+}
+
+.course-card__image img {
+    display: block;
+    width: 100%;
+  }
+
+.course-card__content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  width: 80%;
+}
+
+.course-card__detail{
+  padding-right:1rem ;
+}
+.course-card__description{
+  font-size: 14px;
+  padding-right:1rem ;
+}
+.course-card__author{
+  font-size: 14px;
+}
+.course-card__content h1{
+  font-size:2.5rem;
+  margin: 0;
+}
+.course-card__content--cart h1 {
+  font-size:1rem;
+}
+
+.course-card__metadata{  
+  display:flex;
+  color:gray;
+}
+.course-card__metadata p{  
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.course-card .course-card__button {
+  visibility: visible;
+}
+
+.course-card:hover .course-card__button {
+  visibility: visible;
+}
+
+.course-card__button button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.course-card__button--cart button{
+  font-size: 12px;
+  padding: 8px 5px;
+}

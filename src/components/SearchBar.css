@@ -1,0 +1,35 @@
+.search-box{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.search-box input{
+    width: 50%;
+    font-size: 1.5rem;
+}
+.search-box button{
+    margin-left:1rem;
+    padding: 1rem;
+    font-size: 1rem;
+   
+}
+
+.search-box .dropdown-menu{
+    text-align: center;
+    list-style: none;
+    position:absolute;
+    top: 100%;
+    right:19%;
+    z-index: 1000;
+    min-width: 125px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 15px;
+    box-shadow: 0 4px 16px rgba(20,23,28,.25);
+}
+
+.search-box .dropdown-menu li{
+    padding: .5rem;;
+}
