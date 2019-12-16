@@ -22,9 +22,10 @@ Download guide: --
 Features Supported: --
 -------------
 
-> - displays list of all available courses
+> - Displays list of all available courses-- (courses are added in .json file)
 > - It has a search field where you can search and filter available courses by typing in the search field
 > - Hovering over a course displays an add button
+>-  Sign In is integratred with Google Auth2
 > - Clicking on the add button opens a modal asking for your login credentials (in process)
 > - After submitting the form with any credentials, user must get a successful login message and modal  closes
 > - Course added to a cart on the side of the screen
