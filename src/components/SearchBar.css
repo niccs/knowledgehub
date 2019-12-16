@@ -1,3 +1,6 @@
+.search-form{
+    width: 1322px;
+}
 .search-box{
     display: flex;
     justify-content: center;
@@ -8,7 +11,7 @@
     width: 50%;
     font-size: 1.5rem;
 }
-.search-box button{
+.button{
     margin-left:1rem;
     padding: 1rem;
     font-size: 1rem;

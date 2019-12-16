@@ -13,7 +13,7 @@ class CourseCard extends React.Component{
     render(){
         return(
           <div className="layout__item">
-            <a href="#" className="course-card">
+            <a href="/#" className="course-card">
               <div className="course-card__image">
                 <img src={this.props.course.image} alt="" />
               </div>

@@ -30,7 +30,7 @@ render(){
               value={this.state.term}
               onChange={this.onSearchTextChange}
             />
-            <button onClick={this.onSortClicked}>
+            <button className="button" onClick={this.onSortClicked}>
               Sort
             </button>
             <ul className = "dropdown-menu">
