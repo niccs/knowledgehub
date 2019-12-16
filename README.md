@@ -27,42 +27,26 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<b> Isobar coding challange </b>
+-------------
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Features Supported: --
+-------------
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> - should display list of all available courses
+> - It should have a search field where you can search and filter available courses by typing in the search field
+> - It should have a sort filter, you should be able to sort courses by date and duration
+> - Hovering over a course should display an add button
+> - Clicking on the add button should open a modal asking for your login credentials
+> - After submitting the form with any credentials, user must get a successful login message and modal should close
+> - Course should be added to a cart on the side of the screen
+> - Clicking on new add button should not promote login modal if you have already logged in and it should add course to the side cart panel
+> - If a course has already been added to your cart, hovering over should display a remove button
+> - Clicking on the remove button should remove course from side cart
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+<b>High Level component interaction diagram </b>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![Interaction flow](https://github.com/niccs/knowledgehub/blob/master/design-approach/react_component_diagram.jpg)
