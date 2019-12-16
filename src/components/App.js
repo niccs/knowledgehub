@@ -14,7 +14,7 @@ selectedCourse:""};
 
 onSearchResult = (term)=>{
     let  filteredList={};
-    if(term.trim().length){
+    if(term.trim().length>1){
         console.log("i am at app",term.trim());
 
          filteredList = this.state.courses.filter(

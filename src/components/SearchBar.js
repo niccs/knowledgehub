@@ -12,8 +12,9 @@ onFormSubmit = (e)=>{
 
 
 onSearchTextChange = (e)=>{
-  this.setState({term:e.target.value})
-  // this.props.onSubmit(this.state.term);
+  this.setState({term:e.target.value})  
+  this.props.onSubmit(this.state.term);
+
 }
 
 onSortClicked = (e)=>{
@@ -33,10 +34,10 @@ render(){
             <button className="button" onClick={this.onSortClicked}>
               Sort
             </button>
-            <ul className = "dropdown-menu">
+            {/* <ul className = "dropdown-menu">
               <li>By duration</li>
               <li>By date</li>
-            </ul>
+            </ul> */}
           </div>
         </form>
       </div>
