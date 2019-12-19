@@ -16,7 +16,7 @@ componentDidMount(){
           }).then(
             ()=>{
               this.auth = window.gapi.auth2.getAuthInstance();
-              this.setState({isSighnedIn:this.auth.isSignedIn.get()})
+              this.setState({isSighnedIn:this.auth.isSignedIn.get()});
               this.auth.isSignedIn.listen(this.onAuthChange);
             }
           )
@@ -26,23 +26,18 @@ componentDidMount(){
  
 }
 componentDidUpdate(){
-  // console.log("===========================================");
-  // console.log("===========================================");
-  // console.log("status of sigh in",this.props.triggerSignIn);
-  // console.log("status of isSignedIn",this.props.isSignedIn);
-  // if(this.props.triggerSignIn && !this.state.isSignedIn ){
-  //   console.log("i m here finally");
-  //   this.onSignIn();
-  // }
+  if(this.props.triggerSignIn && !this.state.isSignedIn ){
+    this.onSignIn();
+  }
 }
 
 onAuthChange=()=>{
   this.setState({isSignedIn:this.auth.isSignedIn.get()});
-  console.log("what am I passing",this.state.isSignedIn);
   this.props.onAuthChange(this.state.isSignedIn);
 }
 
 onSignIn=()=>{
+  this.auth.signOut();
   this.auth.signIn().then(this.props.onAuthSignIn);
 }
 onSignOut=()=>{
@@ -62,7 +57,7 @@ renderAuth(){
 
 render(){
     return(
-      <div>
+      <div className="buttonContainer">
          {this.renderAuth()}
       </div>
     );

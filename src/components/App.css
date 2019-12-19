@@ -1,9 +1,16 @@
 
-
-  .page {
+  .band{
+    background: linear-gradient(220deg,#EC5252 -10%,#6E1A52 70%);
+    height:80px;
+    width: 100vw;
+    margin-bottom:1rem;
+    margin-left:-1rem;
+    margin-top:1rem;
+  }
+  .container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 1440px;
+    max-width: 1000px;
     padding-left: 1rem;
     padding-right: 1rem;
     display: flex;

@@ -1,5 +1,6 @@
 .layout__item {
   padding: 0 1rem;
+  
 }
 .layout__item--cart{ 
   margin-top:1rem; 
@@ -7,11 +8,15 @@
 }
 
 .course-card {
-  border-bottom: 1px solid gray;
-  color: #222;
+  
+  color: #29303b;
   display: flex;
   align-items: center;
   text-decoration: none;
+  border-top: 1px solid #dedfe0;
+  padding:1rem;
+  padding-left: 0px;
+  padding-top:0px;
 }
 
 .course-card--cart{
@@ -20,6 +25,8 @@
 
 .course-card__image {
   width: 20%;
+  height: auto;
+  padding: 1rem 0rem;
 }
 
 .course-card__image img {
@@ -44,9 +51,10 @@
 .course-card__author{
   font-size: 14px;
 }
-.course-card__content h1{
-  font-size:2.5rem;
+.course-card__content h4{
+  font-size:18px;
   margin: 0;
+ ;
 }
 .course-card__content--cart h1 {
   font-size:1rem;
@@ -64,15 +72,21 @@
   visibility: visible;
 }
 
+.course-card:hover{
+  background-color: #f7f8fa;
+}
 .course-card:hover .course-card__button {
   visibility: visible;
+
 }
 
 .course-card__button button {
-  background-color: #4CAF50;
+  background-color: #02b3e4;
+  box-shadow: 0 0 8px 0 rgba(17,22,26,.16), 0 4px 8px 0 rgba(17,22,26,.08), 0 8px 16px 0 rgba(17,22,26,.08);
+  border-radius: 4px;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 8px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-flex;

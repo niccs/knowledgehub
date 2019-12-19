@@ -4,7 +4,7 @@ import './CourseCard.css';
 class CourseCard extends React.Component{
 
   onCourseClicked = (e)=>{
-    console.log("Course is clicked",this.props.course.name);
+    // console.log("Course is clicked",this.props.course.name);
     this.props.onAddCourse(this.props.course);
     }
 
@@ -19,7 +19,7 @@ class CourseCard extends React.Component{
               </div>
       
               <div className="course-card__content">
-                <h1>{this.props.course.name}</h1>
+                <h4>{this.props.course.name}</h4>
        
                 <div className="course-card__metadata">
                   <p>{this.props.course.duration}</p>

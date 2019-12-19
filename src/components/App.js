@@ -14,27 +14,35 @@ selectedCourse:""};
 
 onSearchResult = (term)=>{
     let  filteredList={};
-    if(term.trim().length>1){
+    if(term.trim().length>0){
         console.log("i am at app",term.trim());
 
          filteredList = this.state.courses.filter(
             (lesson)=> lesson.name.toUpperCase().includes(term.trim().toUpperCase())
             )
 
-            console.log("after filter",filteredList);
+            // console.log("after filter",filteredList);
             this.setState({courses: filteredList});
     }
     else{
         this.setState({courses: CourseDataJSON.lessons});
     }
-    console.log(this.state.courses);
+    // console.log(this.state.courses);
     // console.log(this.props.courses)
 }
 onAuthChange=(isSignedIn)=>{
+    // console.log("***auth is changed in app.js ",isSignedIn)
     this.setState({isUserSignedIn:isSignedIn});
-    
+    // console.log("***state valie is changed in app.js ",this.state.isUserSignedIn);
+    // console.log("***isADDCLICKED ",this.addClicked);
+    if(this.state.isUserSignedIn && this.addClicked){
+        this.setState({cart: [...this.state.cart, this.state.selectedCourse]});
+        
+    }
+    this.addClicked =false;
   }
 onAddCourse=(course)=>{
+    this.addClicked=true;
     this.setState({selectedCourse:course});
     var found = this.state.cart.find((lesson)=> lesson.id === course.id)
     if(found){
@@ -44,8 +52,8 @@ onAddCourse=(course)=>{
         this.setState({cart: [...this.state.cart, course]});
     }
     else{
-        // this.setState({triggerSignIn: true})
-        this.setState({cart: [...this.state.cart, course]});
+        this.setState({triggerSignIn: true})
+        // this.setState({cart: [...this.state.cart, course]});
         //trigger the sign in
     }
 }
@@ -71,34 +79,35 @@ renderCart(){
     </div>);
 }
 onAuthSignIn=()=>{
-    if(this.state.triggerSignIn && this.state.isUserSignedIn){
-        this.setState({cart: [...this.state.cart, this.state.selectedCourse]});
-        this.setState({triggerSignIn: false});
-        console.log("neetika wants to check callback", this.state.isUserSignedIn);
-        console.log("neetika wants to check callback", this.state.triggerSignIn);
-    }
+
+    // console.log("neetika wants to check callback", this.state.isUserSignedIn);
+    this.setState({triggerSignIn: false});
 }
 render(){
     if (this.state.courses.length === 0) {
         return null;
     }
     return (
-  
         <div className="page">
-            <div className="layout">
-                <Header onSubmit={this.onSearchResult} onAuthChange={this.onAuthChange} triggerSignIn={this.state.triggerSignIn}
-                onAuthSignIn={this.onAuthSignIn}/> 
-                <div className="layout--courses" >
-                    <CourseList  courses={this.state.courses} onAddCourse={this.onAddCourse}/>
-                    {
+            <Header onSubmit={this.onSearchResult} onAuthChange={this.onAuthChange} triggerSignIn={this.state.triggerSignIn}
+                    onAuthSignIn={this.onAuthSignIn}/> 
+            <div className="band">
+
+            </div>
+            <div className="container">
+                <div className="layout">
                     
-                    this.renderCart()
-                    }
+                    <div className="layout--courses" >
+                        <CourseList  courses={this.state.courses} onAddCourse={this.onAddCourse}/>
+                        {
+                        
+                        this.renderCart()
+                        }
+                    </div>
+                    
                 </div>
-                
             </div>
         </div>
-        
         );
     }
 };
