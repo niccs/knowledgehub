@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
+import { ReactComponent as SearchIcon } from '../icons/magnifying-glass.svg';
 
 class SearchBar extends React.Component{
 
@@ -26,25 +27,29 @@ console.log("sort is clicked");
 
 render(){
     return(
-      <div className="searchBar">
-        <form onSubmit={this.onFormSubmit} className = "search-form">
-          <div className = "search-box">
+   
+        <form onSubmit={this.onFormSubmit} className = "search">
+         
             <input 
+              className = "search__input"
+              placeholder="Search Course"
               type = "text"
               value={this.state.term}
               onChange={this.onSearchTextChange}
             />            
-              <button className="button" onClick={this.onSortClicked}>
-                Sort
+              <button className="search__button" >
+                <SearchIcon className="search__icon">
+                </SearchIcon>
+
               </button>
       
             {/* <ul className = "dropdown-menu">
               <li>By duration</li>
               <li>By date</li>
             </ul> */}
-          </div>
+       
         </form>
-      </div>
+
     );
 }
 }

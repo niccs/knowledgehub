@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchBar.css';
+import './UserNav.css';
 
 class Googleauth extends React.Component{
 
@@ -20,7 +20,7 @@ componentDidMount(){
               this.auth.isSignedIn.listen(this.onAuthChange);
             }
           )
-        })},   
+        })},
    1000);
 
  
@@ -48,16 +48,16 @@ renderAuth(){
     return <div></div>
   }
   else if(this.state.isSignedIn){
-    return <button className="button" onClick={this.onSignOut}>Sign Out</button>
+    return <button className="nav__user-signIn" onClick={this.onSignOut}>Sign Out</button>
   }
   else{
-    return <button className="button" onClick={this.onSignIn}>Sign In</button>
+    return <button className="nav__user-signIn" onClick={this.onSignIn}>Sign In</button>
   }
 }
 
 render(){
     return(
-      <div className="buttonContainer">
+      <div className="nav__user">
          {this.renderAuth()}
       </div>
     );

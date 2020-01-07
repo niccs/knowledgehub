@@ -1,7 +1,8 @@
 import React from 'react';
 import './Header.css';
-import GoogleAuth from'./GoogleAuth';
+
 import SearchBar from './SearchBar';
+import UserNav from './UserNav';
 
 class Header extends React.Component{
 
@@ -16,8 +17,10 @@ console.log("sort is clicked");
 render(){
     return(
       <header className="header">
+        <img src="" alt="logo" className="logo"></img>
         <SearchBar onSubmit={this.props.onSubmit}/>
-        <GoogleAuth onAuthChange={this.props.onAuthChange} triggerSignIn={this.props.triggerSignIn } onAuthSignIn={this.props.onAuthSignIn}/>
+        <UserNav cartSize = {this.props.cartSize} onAuthChange={this.props.onAuthChange} triggerSignIn={this.props.triggerSignIn } onAuthSignIn={this.props.onAuthSignIn}/>
+        
       </header>
     );
 }

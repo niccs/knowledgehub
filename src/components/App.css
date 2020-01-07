@@ -1,11 +1,39 @@
 
+  :root {
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999; 
+
+    --color-light-blue-1: #02b3e4;;
+  }
+
+  * {
+    margin:0;
+    padding:0;
+  }
+
+  *,
+  *::before,
+  *::after{
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+    /* // 1rem = 10px, 10px/16px = 62.5% */
+    font-size: 62.5%;  
+  }
   .band{
     background: linear-gradient(220deg,#EC5252 -10%,#6E1A52 70%);
     height:80px;
     width: 100vw;
-    margin-bottom:1rem;
+    /* margin-bottom:1rem; */
     margin-left:-1rem;
-    margin-top:1rem;
+    /* margin-top:1rem; */
   }
   .container {
     margin-left: auto;
@@ -14,6 +42,8 @@
     padding-left: 1rem;
     padding-right: 1rem;
     display: flex;
+    background-color: var(--color-grey-light-2);
+    box-shadow: 0 2rem 6rem rgba(0,0,0,0.3);
   }
   
   .layout {
@@ -38,7 +68,7 @@
     justify-content: center;
     align-content: center;
     padding-bottom: 1rem;;
-    border-bottom: 1px solid gray;
+    border-bottom: var(--color-grey-dark-2);
   }
   
   

@@ -1,6 +1,13 @@
 .header{
     display: flex;
     justify-content: space-between;
-    /* background-color: lightblue; */
+    height:7rem;
+    /* margin-top: 2rem; */
+    /* padding-bottom: 2rem; */
+    border-bottom: 1px solid var(--color-grey-light-1);
+}
+.logo{
+    margin-left: 2rem;
+    height: 4rem;
 }
 

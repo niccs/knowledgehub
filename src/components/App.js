@@ -21,8 +21,12 @@ onSearchResult = (term)=>{
             (lesson)=> lesson.name.toUpperCase().includes(term.trim().toUpperCase())
             )
 
-            // console.log("after filter",filteredList);
-            this.setState({courses: filteredList});
+            console.log("after filter",filteredList);
+            if(filteredList.length>0){
+                this.setState({courses: filteredList});
+            }else{
+                alert("no cources matched");
+            }
     }
     else{
         this.setState({courses: CourseDataJSON.lessons});
@@ -90,10 +94,10 @@ render(){
     return (
         <div className="page">
             <Header onSubmit={this.onSearchResult} onAuthChange={this.onAuthChange} triggerSignIn={this.state.triggerSignIn}
-                    onAuthSignIn={this.onAuthSignIn}/> 
+                    onAuthSignIn={this.onAuthSignIn} cartSize={this.state.cart.length}/> 
             <div className="band">
-
             </div>
+         
             <div className="container">
                 <div className="layout">
                     
