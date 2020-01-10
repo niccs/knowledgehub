@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
 import CourseDataJSON from './../data.json';
-
-import CartCourseList from './CartCourseList';
 import CourseList from './CourseList';
 import Header from './Header';
 
@@ -21,8 +19,7 @@ onSearchResult = (term)=>{
             (lesson)=> lesson.name.toUpperCase().includes(term.trim().toUpperCase())
             )
 
-            console.log("after filter",filteredList);
-            if(filteredList.length>0){
+             if(filteredList.length>0){
                 this.setState({courses: filteredList});
             }else{
                 alert("no cources matched");
@@ -31,20 +28,16 @@ onSearchResult = (term)=>{
     else{
         this.setState({courses: CourseDataJSON.lessons});
     }
-    // console.log(this.state.courses);
-    // console.log(this.props.courses)
 }
 onAuthChange=(isSignedIn)=>{
-    // console.log("***auth is changed in app.js ",isSignedIn)
     this.setState({isUserSignedIn:isSignedIn});
-    // console.log("***state valie is changed in app.js ",this.state.isUserSignedIn);
-    // console.log("***isADDCLICKED ",this.addClicked);
     if(this.state.isUserSignedIn && this.addClicked){
         this.setState({cart: [...this.state.cart, this.state.selectedCourse]});
         
     }
     this.addClicked =false;
   }
+
 onAddCourse=(course)=>{
     this.addClicked=true;
     this.setState({selectedCourse:course});
@@ -57,8 +50,6 @@ onAddCourse=(course)=>{
     }
     else{
         this.setState({triggerSignIn: true})
-        // this.setState({cart: [...this.state.cart, course]});
-        //trigger the sign in
     }
 }
 
@@ -72,16 +63,6 @@ componentDidMount() {
     this.setState({courses: CourseDataJSON.lessons});
 }
 
-
-renderCart(){
-    
-    if(this.state.cart.length>0)
-    return(
-    <div className="layout--cart">
-        <div className="cartheading">Course Cart</div>
-            <CartCourseList  cartcourses={this.state.cart} onRemoveCourse={this.onRemoveCourse}/>
-    </div>);
-}
 onAuthSignIn=()=>{
 
     // console.log("neetika wants to check callback", this.state.isUserSignedIn);
@@ -94,7 +75,8 @@ render(){
     return (
         <div className="page">
             <Header onSubmit={this.onSearchResult} onAuthChange={this.onAuthChange} triggerSignIn={this.state.triggerSignIn}
-                    onAuthSignIn={this.onAuthSignIn} cartSize={this.state.cart.length}/> 
+                    onAuthSignIn={this.onAuthSignIn} cartSize={this.state.cart.length} cartList={this.state.cart} 
+                    onRemoveCourse={this.onRemoveCourse}/> 
             <div className="band">
             </div>
          
@@ -103,10 +85,7 @@ render(){
                     
                     <div className="layout--courses" >
                         <CourseList  courses={this.state.courses} onAddCourse={this.onAddCourse}/>
-                        {
                         
-                        this.renderCart()
-                        }
                     </div>
                     
                 </div>

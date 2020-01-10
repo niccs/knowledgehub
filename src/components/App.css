@@ -56,19 +56,3 @@
     width: 100%;
     display: flex;
   }
-  .layout--cart {
-    margin-left:1rem;
-    margin-top: 5rem;
-    width: 30%;
-  }
-  .cartheading{
-    display: flex;
-    font-size: 2rem;
-    text-transform: uppercase;
-    justify-content: center;
-    align-content: center;
-    padding-bottom: 1rem;;
-    border-bottom: var(--color-grey-dark-2);
-  }
-  
-  

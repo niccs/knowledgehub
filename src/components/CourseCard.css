@@ -41,6 +41,7 @@
   width: 80%;
   font-size: inherit;
   color: var(--color-grey-dark-1);
+  padding-top: 1rem;
 }
 
 .course-card__detail{
@@ -97,6 +98,7 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  outline: none;
 }
 
 .course-card__button button:active{

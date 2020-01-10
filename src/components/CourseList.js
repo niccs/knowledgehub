@@ -5,8 +5,7 @@ class CourseList extends React.Component{
 
 render(){
     return(
-        <div >         
-            {console.log("nee",this.props.courses)}    
+        <div >
             {this.props.courses.map(course => <CourseCard key={course.id} course={course} onAddCourse={this.props.onAddCourse}/>)}
         </div>
             

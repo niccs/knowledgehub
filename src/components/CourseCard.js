@@ -4,7 +4,6 @@ import './CourseCard.css';
 class CourseCard extends React.Component{
 
   onCourseClicked = (e)=>{
-    // console.log("Course is clicked",this.props.course.name);
     this.props.onAddCourse(this.props.course);
     }
 
@@ -12,7 +11,7 @@ class CourseCard extends React.Component{
 
     render(){
         return(
-          <div className="layout__item">
+          <div>
             <a href="/#" className="course-card">
               <div className="course-card__image">
                 <img src={this.props.course.image} alt="" />
