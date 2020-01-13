@@ -7,7 +7,7 @@ state = {userInfo:{}};
 
 
 componentDidMount(){
-
+  // console.log("lets see userInfo from local storage", this.props.userInfo);
    setTimeout( ()=>{
         window.gapi.load('client:auth2',()=>{
           window.gapi.client.init({

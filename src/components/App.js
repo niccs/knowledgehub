@@ -11,29 +11,28 @@ state={courses:[] , cart:[], userInfo:{}, triggerSignIn:false,
 selectedCourse:""};
 
 componentDidMount(){
-//     const json = localStorage.getItem("myCart");
-//     const cart = JSON.parse(json);
-//     console.log("my cart is ",cart);
-//     this.setState({cart:cart});
+    const json = localStorage.getItem("myCart");
+    const cart = JSON.parse(json);
+    console.log("my cart is ",cart);
+    this.setState({cart:cart});
     this.setState({courses: CourseDataJSON.lessons});
 
-//     const jsonUserInfo = localStorage.getItem("userInfo");
-//     const cart = JSON.parse(json);
-//     console.log("my cart is ",cart);
-//     this.setState({cart:cart});
-//     this.setState({courses: CourseDataJSON.lessons});
+    const jsonUserInfo = localStorage.getItem("userInfo");
+    const userInfo = JSON.parse(jsonUserInfo);
+    this.setState({userInfo:userInfo});
 }
 
-// componentDidUpdate(prevProps, prevState){
-//     if(prevState.cart.length !== this.state.cart.length){
-//         const json = JSON.stringify(this.state.cart);
-//         localStorage.setItem("myCart",json);
-//     }
-//     if(prevState.userInfo.isSignedIn !== this.state.userInfo.isSignedIn){
-//         const jsonUserInfo = JSON.stringify(this.state.userInfo);
-//         localStorage.setItem("userInfo",jsonUserInfo);
-//     }
-// }
+componentDidUpdate(prevProps, prevState){
+    if(prevState.cart.length !== this.state.cart.length){
+        const json = JSON.stringify(this.state.cart);
+        localStorage.setItem("myCart",json);
+    }
+    if(this.state.userInfo.isSignedIn){
+        const jsonUserInfo = JSON.stringify(this.state.userInfo);
+        console.log("lets see the userinfo",jsonUserInfo );
+        localStorage.setItem("userInfo",jsonUserInfo);
+    }
+}
 
 onSearchResult = (term)=>{
     let  filteredList={};
@@ -99,7 +98,7 @@ render(){
         <div className="page">
             <Header onSubmit={this.onSearchResult} onAuthChange={this.onAuthChange} triggerSignIn={this.state.triggerSignIn}
                     onAuthSignIn={this.onAuthSignIn} cartSize={this.state.cart.length} cartList={this.state.cart} 
-                    onRemoveCourse={this.onRemoveCourse} userInfo={this.state.userInfo}/> 
+                    onRemoveCourse={this.onRemoveCourse} /> 
             <div className="band">
             </div>
          
