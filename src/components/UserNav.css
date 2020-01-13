@@ -32,7 +32,7 @@
     height: 1.75rem;
     width: 1.75rem;
     border-radius: 50%;
-    background-color: var(--color-light-blue-1);
+    background-color: var(--color-light-red-1);
     color: white;
     display: flex;
     align-items: center;
@@ -87,12 +87,13 @@
 }
 
 .nav__user-signIn{
-    background-color: var(--color-light-blue-1);
+    background-color: var(--color-light-red-1);
     color: white;
     padding: 2rem 2rem;
     border:none;
     border-radius: 10px;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .nav__user-signIn:active{

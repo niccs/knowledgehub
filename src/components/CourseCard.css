@@ -27,6 +27,7 @@
   width: 20%;
   height: auto;
   padding: 1rem 0rem;
+  background-color: var(--color-grey-light-2);
 }
 
 .course-card__image img {
@@ -41,7 +42,8 @@
   width: 80%;
   font-size: inherit;
   color: var(--color-grey-dark-1);
-  padding-top: 1rem;
+  align-self: flex-start;
+  padding-top: 2rem;
 }
 
 .course-card__detail{

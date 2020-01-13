@@ -19,9 +19,9 @@ render(){
       <header className="header">
         <img src="" alt="logo" className="logo"></img>
         <SearchBar onSubmit={this.props.onSubmit}/>
-        {console.log("hey lets check cart size ", this.props.cartList)}
         <UserNav cartSize = {this.props.cartSize} cartCourses={this.props.cartList} onAuthChange={this.props.onAuthChange} 
-        triggerSignIn={this.props.triggerSignIn } onAuthSignIn={this.props.onAuthSignIn} onRemoveCourse={this.props.onRemoveCourse}/>
+        triggerSignIn={this.props.triggerSignIn } onAuthSignIn={this.props.onAuthSignIn} onRemoveCourse={this.props.onRemoveCourse}
+        userInfo={this.props.userInfo}/>
         
       </header>
     );

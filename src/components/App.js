@@ -7,8 +7,33 @@ import Header from './Header';
 
 class App extends React.Component{
 
-state={courses:[] , cart:[], isUserSignedIn:false, triggerSignIn:false,
+state={courses:[] , cart:[], userInfo:{}, triggerSignIn:false,
 selectedCourse:""};
+
+componentDidMount(){
+//     const json = localStorage.getItem("myCart");
+//     const cart = JSON.parse(json);
+//     console.log("my cart is ",cart);
+//     this.setState({cart:cart});
+    this.setState({courses: CourseDataJSON.lessons});
+
+//     const jsonUserInfo = localStorage.getItem("userInfo");
+//     const cart = JSON.parse(json);
+//     console.log("my cart is ",cart);
+//     this.setState({cart:cart});
+//     this.setState({courses: CourseDataJSON.lessons});
+}
+
+// componentDidUpdate(prevProps, prevState){
+//     if(prevState.cart.length !== this.state.cart.length){
+//         const json = JSON.stringify(this.state.cart);
+//         localStorage.setItem("myCart",json);
+//     }
+//     if(prevState.userInfo.isSignedIn !== this.state.userInfo.isSignedIn){
+//         const jsonUserInfo = JSON.stringify(this.state.userInfo);
+//         localStorage.setItem("userInfo",jsonUserInfo);
+//     }
+// }
 
 onSearchResult = (term)=>{
     let  filteredList={};
@@ -22,16 +47,18 @@ onSearchResult = (term)=>{
              if(filteredList.length>0){
                 this.setState({courses: filteredList});
             }else{
-                alert("no cources matched");
+                alert("no courses matched");
             }
+            
     }
     else{
         this.setState({courses: CourseDataJSON.lessons});
     }
 }
-onAuthChange=(isSignedIn)=>{
-    this.setState({isUserSignedIn:isSignedIn});
-    if(this.state.isUserSignedIn && this.addClicked){
+
+onAuthChange=(userInfo)=>{
+    this.setState({userInfo});
+    if(this.state.userInfo.isSignedIn && this.addClicked){
         this.setState({cart: [...this.state.cart, this.state.selectedCourse]});
         
     }
@@ -45,7 +72,7 @@ onAddCourse=(course)=>{
     if(found){
         console.log(`${course.name} is already present in cart`);
     }
-    else if(this.state.isUserSignedIn){
+    else if(this.state.userInfo.isSignedIn){
         this.setState({cart: [...this.state.cart, course]});
     }
     else{
@@ -59,13 +86,9 @@ onRemoveCourse=(course)=>{
     this.setState({cart: array});
 }
 
-componentDidMount() {
-    this.setState({courses: CourseDataJSON.lessons});
-}
 
 onAuthSignIn=()=>{
 
-    // console.log("neetika wants to check callback", this.state.isUserSignedIn);
     this.setState({triggerSignIn: false});
 }
 render(){
@@ -76,7 +99,7 @@ render(){
         <div className="page">
             <Header onSubmit={this.onSearchResult} onAuthChange={this.onAuthChange} triggerSignIn={this.state.triggerSignIn}
                     onAuthSignIn={this.onAuthSignIn} cartSize={this.state.cart.length} cartList={this.state.cart} 
-                    onRemoveCourse={this.onRemoveCourse}/> 
+                    onRemoveCourse={this.onRemoveCourse} userInfo={this.state.userInfo}/> 
             <div className="band">
             </div>
          

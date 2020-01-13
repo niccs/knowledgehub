@@ -8,7 +8,8 @@
     --color-grey-dark-2: #777;
     --color-grey-dark-3: #999; 
 
-    --color-light-blue-1: #02b3e4;;
+    --color-light-blue-1: #007791;
+    --color-light-red-1: #ec5252;;
   }
 
   * {
@@ -42,7 +43,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     display: flex;
-    background-color: var(--color-grey-light-2);
+    /* background-color: var(--color-grey-light-2); */
     box-shadow: 0 2rem 6rem rgba(0,0,0,0.3);
   }
   

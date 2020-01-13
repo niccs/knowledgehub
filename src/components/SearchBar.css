@@ -56,7 +56,7 @@
 .search__icon{
     width: 2rem;
     height: 2rem;
-    fill: var(--color-grey-dark-2);
+    fill: var(--color-light-red-1);
 }
 
 .search-box .dropdown-menu{

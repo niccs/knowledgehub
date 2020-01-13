@@ -3,7 +3,7 @@ import './UserNav.css';
 
 class Googleauth extends React.Component{
 
-state = {isSignedIn:false};
+state = {userInfo:{}};
 
 
 componentDidMount(){
@@ -12,11 +12,10 @@ componentDidMount(){
         window.gapi.load('client:auth2',()=>{
           window.gapi.client.init({
             clientId: '1045070538920-or7s4490ms5e72uh0baa5ii6cj9s4bfd.apps.googleusercontent.com',
-            scope:'email'
+            scope:' profile email'
           }).then(
             ()=>{
               this.auth = window.gapi.auth2.getAuthInstance();
-              this.setState({isSighnedIn:this.auth.isSignedIn.get()});
               this.auth.isSignedIn.listen(this.onAuthChange);
             }
           )
@@ -26,14 +25,20 @@ componentDidMount(){
  
 }
 componentDidUpdate(){
-  if(this.props.triggerSignIn && !this.state.isSignedIn ){
+  if(this.props.triggerSignIn && !this.state.userInfo.isSignedIn ){
     this.onSignIn();
   }
 }
 
 onAuthChange=()=>{
-  this.setState({isSignedIn:this.auth.isSignedIn.get()});
-  this.props.onAuthChange(this.state.isSignedIn);
+  let userInfo=
+    {userName: this.auth.currentUser.get().getBasicProfile().getName(),
+    userEmail: this.auth.currentUser.get().getBasicProfile().getEmail(),
+    isSignedIn: this.auth.isSignedIn.get()}
+  this.setState({userInfo});
+  console.log("check the name",this.auth.currentUser.get().getBasicProfile().getName());
+  console.log("check the email",this.auth.currentUser.get().getBasicProfile().getEmail());
+  this.props.onAuthChange(this.state.userInfo);
 }
 
 onSignIn=()=>{
@@ -44,11 +49,11 @@ onSignOut=()=>{
   this.auth.signOut();
 }
 renderAuth(){
-  if(this.state.isSignedIn===null){
+  if(this.state.userInfo.isSignedIn===null){
     return <div></div>
   }
-  else if(this.state.isSignedIn){
-    return <button className="nav__user-signIn" onClick={this.onSignOut}>Sign Out</button>
+  else if(this.state.userInfo.isSignedIn){
+  return <button className="nav__user-signIn" onClick={this.onSignOut}>Sign Out</button>
   }
   else{
     return <button className="nav__user-signIn" onClick={this.onSignIn}>Sign In</button>
