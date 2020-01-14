@@ -28,7 +28,10 @@ render(){
             {this.renderCart()}
             
           </div>
-          <GoogleAuth onAuthChange={this.props.onAuthChange} triggerSignIn={this.props.triggerSignIn } onAuthSignIn={this.props.onAuthSignIn}/>
+          <GoogleAuth onAuthChange={this.props.onAuthChange} 
+                      triggerSignIn={this.props.triggerSignIn } 
+                      onAuthSignIn={this.props.onAuthSignIn}
+                      userInfo ={this.props.userInfo}/>
             
         </nav>
     );

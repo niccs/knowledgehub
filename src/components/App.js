@@ -13,13 +13,16 @@ selectedCourse:""};
 componentDidMount(){
     const json = localStorage.getItem("myCart");
     const cart = JSON.parse(json);
-    console.log("my cart is ",cart);
-    this.setState({cart:cart});
+    if(cart){
+        this.setState({cart:cart});
+    }
     this.setState({courses: CourseDataJSON.lessons});
 
     const jsonUserInfo = localStorage.getItem("userInfo");
     const userInfo = JSON.parse(jsonUserInfo);
-    this.setState({userInfo:userInfo});
+   if(userInfo){
+        this.setState({userInfo});
+  }
 }
 
 componentDidUpdate(prevProps, prevState){
@@ -29,7 +32,6 @@ componentDidUpdate(prevProps, prevState){
     }
     if(this.state.userInfo.isSignedIn){
         const jsonUserInfo = JSON.stringify(this.state.userInfo);
-        console.log("lets see the userinfo",jsonUserInfo );
         localStorage.setItem("userInfo",jsonUserInfo);
     }
 }
@@ -62,6 +64,9 @@ onAuthChange=(userInfo)=>{
         
     }
     this.addClicked =false;
+    if(!this.state.userInfo.isSignedIn){
+        this.setState({cart: []});
+    }
   }
 
 onAddCourse=(course)=>{
@@ -98,7 +103,7 @@ render(){
         <div className="page">
             <Header onSubmit={this.onSearchResult} onAuthChange={this.onAuthChange} triggerSignIn={this.state.triggerSignIn}
                     onAuthSignIn={this.onAuthSignIn} cartSize={this.state.cart.length} cartList={this.state.cart} 
-                    onRemoveCourse={this.onRemoveCourse} /> 
+                    onRemoveCourse={this.onRemoveCourse} userInfo={this.state.userInfo} /> 
             <div className="band">
             </div>
          

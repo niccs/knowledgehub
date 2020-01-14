@@ -17,12 +17,16 @@ componentDidMount(){
             ()=>{
               this.auth = window.gapi.auth2.getAuthInstance();
               this.auth.isSignedIn.listen(this.onAuthChange);
+              let userInfo=
+                {userName: this.auth.currentUser.get().getBasicProfile().getName(),
+                userEmail: this.auth.currentUser.get().getBasicProfile().getEmail(),
+                isSignedIn: this.auth.isSignedIn.get()}
+                this.setState({userInfo});
             }
           )
         })},
    1000);
 
- 
 }
 componentDidUpdate(){
   if(this.props.triggerSignIn && !this.state.userInfo.isSignedIn ){
@@ -36,8 +40,6 @@ onAuthChange=()=>{
     userEmail: this.auth.currentUser.get().getBasicProfile().getEmail(),
     isSignedIn: this.auth.isSignedIn.get()}
   this.setState({userInfo});
-  console.log("check the name",this.auth.currentUser.get().getBasicProfile().getName());
-  console.log("check the email",this.auth.currentUser.get().getBasicProfile().getEmail());
   this.props.onAuthChange(this.state.userInfo);
 }
 
