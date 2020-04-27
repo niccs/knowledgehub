@@ -35,6 +35,7 @@ componentDidUpdate(){
 }
 
 onAuthChange=()=>{
+  console.log("google auth  onAuthChange triggeres");
   let userInfo=
     {userName: this.auth.currentUser.get().getBasicProfile().getName(),
     userEmail: this.auth.currentUser.get().getBasicProfile().getEmail(),
@@ -44,7 +45,7 @@ onAuthChange=()=>{
 }
 
 onSignIn=()=>{
-  this.auth.signOut();
+  // this.auth.signOut();
   this.auth.signIn().then(this.props.onAuthSignIn);
 }
 onSignOut=()=>{
